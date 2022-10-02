@@ -6,6 +6,10 @@
  * You may find the readings in chapter 3. Relationships between Classes
  * helpful while working through this exercise.
  */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class HandBag extends Bag{
 
     /**
