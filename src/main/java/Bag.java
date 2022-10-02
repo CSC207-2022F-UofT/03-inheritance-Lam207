@@ -13,6 +13,10 @@ public abstract class Bag {
      *       - an int named capacity
      *       - an array of Strings named contents
      */
+    private String color;
+    private int numberOfContents;
+    private int capacity;
+    private String[] contents;
 
 
 
@@ -25,7 +29,16 @@ public abstract class Bag {
      * The other attributes (private instance variables) should
      * be empty (e.g. numberOfContents is 0 and an empty String array for
      * its contents.)
+     *
+     * @param colour   The Bag's colour
+     *        capacity The Bag's capacity
      */
+    public Bag(String colour, int capacity){
+        this.color = colour;
+        this.capacity = capacity;
+        this.numberOfContents = 0;
+        this.contents = new String[this.capacity];
+    }
 
 
 
@@ -37,6 +50,16 @@ public abstract class Bag {
      *           - getNumberOfContents
      *           - getCapacity
      */
+    public String getColor(){
+        return this.color;
+    }
+    public int getNumberOfContents(){
+        return this.numberOfContents;
+    }
+
+    public int getCapacity(){
+        return this.capacity;
+    }
 
 
 
@@ -44,7 +67,12 @@ public abstract class Bag {
     /*
      * TODO: Create a setter function called setColor which sets the
      *       color of this bag to the given color.
+     *
+     * @Param color a given color for the current Bag object.
      */
+    public void setColor(String color){
+        this.color = color;
+    }
 
 
 
@@ -59,7 +87,23 @@ public abstract class Bag {
      *
      *       This method should return true if the item was added
      *       and false otherwise.
+     *
+     *       This method should return true if the item was added
+     *       and false otherwise.
+     * @Param item A string object to be in a Bag instance.
+     *
+     * @Return boolean for whether a given item is added into a bag or not.
      */
+    public boolean addItem(String item){
+        ArrayList<String> list_bag = new ArrayList<>(Arrays.asList(this.contents));
+        if (this.numberOfContents < this.capacity){
+            list_bag.add(this.numberOfContents, item);
+            this.numberOfContents += 1;
+            this.contents = list_bag.toArray(new String[this.capacity]);
+            return true;
+        }
+        return false;
+    }
 
 
 
@@ -73,9 +117,18 @@ public abstract class Bag {
      *
      * If there are no items in this Bag, return null.
      *
-     * @return
+     * @return the item popped
      */
-
+    public String popItem(){
+        ArrayList<String> bag_items = new ArrayList<>(Arrays.asList(this.contents));
+        if (bag_items.size() >= 1){
+            String popped = bag_items.remove(this.numberOfContents - 1);
+            this.numberOfContents -= 1;
+            this.contents = bag_items.toArray(new String[this.capacity]);
+            return popped;
+        }
+        return null;
+    }
 
 
 
@@ -87,7 +140,7 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-
+        this.capacity += n;
     }
 
     /**
