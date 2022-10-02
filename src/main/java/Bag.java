@@ -4,6 +4,8 @@
  * the TODOs we have left you. You may find the readings in chapter
  * 1. Introduction to Java helpful.
  */
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Bag {
     /*
