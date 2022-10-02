@@ -30,6 +30,8 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CrossbodyBag extends Bag{
     /**
